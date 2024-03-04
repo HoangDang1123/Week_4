@@ -1,7 +1,5 @@
 import React from 'react';
 import { SafeAreaView, View, ImageBackground, Pressable, Text, StyleSheet } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const backgroundImage = require('../assets/images/startApp.png');
 
@@ -12,7 +10,7 @@ const WelcomeScreen = ({navigation}) => {
             <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
                 <SafeAreaView style={styles.PressableContainer}>
                     <Pressable style={styles.loginPressable}
-                        onPress={() => navigation.navigate("Login")}>
+                        onPress={() => navigation.navigate("HomeMenu")}>
                         <Text style={styles.loginPressableText}>Login</Text>
                     </Pressable>
 
