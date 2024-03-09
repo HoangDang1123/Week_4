@@ -1,11 +1,9 @@
-import { Text, SafeAreaView, Image, ScrollView, Dimensions } from 'react-native';
-import * as styles from '../styles';
-
+import { StyleSheet, SafeAreaView, View, Image, ScrollView, Dimensions, StatusBar } from 'react-native';
 import { MenuButton, NotificationButton, SearchButton } from "../components/HeaderButton";
 import * as categories from "../components/CategoriesButton";
 import * as acquisitions from "../components/AcquisitionButton";
 
-function HomeScreen({navigation}) {
+const HomeScreen = ({navigation}) => {
   const handleAcquisitionPress = () => {
     console.log("ok")
   }
@@ -15,19 +13,20 @@ function HomeScreen({navigation}) {
   const screenHeight = Dimensions.get('window').height;
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <SafeAreaView>
+    <SafeAreaView style={homeScreenStyles}>
+      <View style={headerStyle}>
         <Image
           source={require('../assets/images/logo.png')}
-          style={{ width: 248, height: 47, position: 'absolute', top: 50 }}
+          style={{ width: 180, height: 58}}
         />
+        <View style={{flexDirection: 'row'}}>
+          <SearchButton onPress={handleAcquisitionPress} />
+          <NotificationButton onPress={handleAcquisitionPress} />
+          <MenuButton onPress={() => navigation.openDrawer()} />
+        </View>
+      </View>
 
-        <SearchButton onPress={handleAcquisitionPress} />
-        <NotificationButton onPress={handleAcquisitionPress} />
-        <MenuButton onPress={() => navigation.openDrawer()} />
-      </SafeAreaView>
-
-      <SafeAreaView style={styles.categoriesStyles.view}>
+      <View style={categoriesStyles.view}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} >
           <categories.AllCategories onPress={handleAcquisitionPress} />
           <categories.ShirtCategory onPress={handleAcquisitionPress} />
@@ -41,9 +40,9 @@ function HomeScreen({navigation}) {
           <categories.SweaterCategory onPress={handleAcquisitionPress} />
           <categories.JeansCategory onPress={handleAcquisitionPress} />
         </ScrollView>
-      </SafeAreaView>
+      </View>
 
-      <SafeAreaView style={styles.acquisitionStyles.view}>
+      <View style={acquisitionStyles.view}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} >
           <acquisitions.FilterAcquisition onPress={handleAcquisitionPress} />
           <acquisitions.DistanceAcquisition onPress={handleAcquisitionPress} />
@@ -52,15 +51,48 @@ function HomeScreen({navigation}) {
           <acquisitions.BorrowAcquisition onPress={handleAcquisitionPress} />
           <acquisitions.RentAcquisition onPress={handleAcquisitionPress} />
         </ScrollView>
-      </SafeAreaView>
+      </View>
 
-      <SafeAreaView style={{position: 'absolute', bottom: -15}}>
+      <View style={{position: 'absolute', bottom: -15}}>
         <Image
           source={require('../assets/images/bottom_menu.png')}
           style={{ width: screenWidth}}
         />
-      </SafeAreaView>
+      </View>
     </SafeAreaView>
   );
 }
+
+const homeScreenStyles = StyleSheet.create({
+  flex: 1,
+  backgroundColor: '#FFFFFF',
+  marginTop: StatusBar.currentHeight
+});
+
+const headerStyle = StyleSheet.create({
+  marginHorizontal: 20,
+  marginVertical: 10,
+  justifyContent: 'space-between',
+  flexDirection: 'row'
+})
+
+const categoriesStyles = StyleSheet.create({
+  view: {
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    justify: 'center',
+    flexDirection: 'row'
+  }
+});
+
+const acquisitionStyles = StyleSheet.create({
+  view: {
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    justify: 'center',
+    flexDirection: 'row'
+  }
+});
 export default HomeScreen;

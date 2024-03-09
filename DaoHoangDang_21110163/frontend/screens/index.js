@@ -9,17 +9,19 @@ import LevelScreen from "./LevelScreen";
 import BadgesScreen from "./BadgesScreen";
 import RevenueScreen from "./RevenueScreen";
 import MapScreen from "./MapScreen";
+import ProfileScreen from "./ProfileScreen";
 
 export {
     LoginScreen,
     WelcomeScreen,
     SignUpScreen,
     HomeScreen,
+    ProfileScreen,
     AccountScreen,
     FriendScreen,
     CartScreen,
     LevelScreen,
     BadgesScreen,
     RevenueScreen,
-    MapScreen
+    MapScreen,
 }

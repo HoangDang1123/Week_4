@@ -1,14 +1,15 @@
 import React from 'react';
-import { SafeAreaView, View, ImageBackground, Pressable, Text, StyleSheet } from 'react-native';
+import { View, ImageBackground, Pressable, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const backgroundImage = require('../assets/images/startApp.png');
 
-const WelcomeScreen = ({navigation}) => {
+const WelcomeScreen = () => {
+    const navigation = useNavigation();
     return (
-
         <SafeAreaView style={styles.container}>
             <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-                <SafeAreaView style={styles.PressableContainer}>
+                <View style={styles.PressableContainer}>
                     <Pressable style={styles.loginPressable}
                         onPress={() => navigation.navigate("HomeMenu")}>
                         <Text style={styles.loginPressableText}>Login</Text>
@@ -18,9 +19,9 @@ const WelcomeScreen = ({navigation}) => {
                         onPress={() => navigation.navigate("SignUp")}>
                         <Text style={styles.signUpPressableText}>Sign Up</Text>
                     </Pressable>
-                </SafeAreaView>
+                </View>
             </ImageBackground>
-         </SafeAreaView>
+        </SafeAreaView>
     );
 };
 

@@ -8,26 +8,6 @@ export const Colors = {
   error500: '#f37c13',
 };
 
-export const categoriesStyles = StyleSheet.create({
-  view: {
-    marginTop: 120,
-    marginLeft: 10,
-    marginRight: 10,
-    justify: 'center',
-    flexDirection: 'row'
-  }
-});
-
-export const acquisitionStyles = StyleSheet.create({
-  view: {
-    marginTop: 20,
-    marginLeft: 10,
-    marginRight: 10,
-    justify: 'center',
-    flexDirection: 'row'
-  }
-});
-
 export const unSelectedCategoryStyles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
@@ -86,10 +66,4 @@ export const blueBackgroundStyles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
   },
-});
-
-export const scrollViewStyles = StyleSheet.create({
-  scrollview: {
-    paddingHorizontal: 5
-  }
 });

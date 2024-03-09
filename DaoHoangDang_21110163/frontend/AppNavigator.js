@@ -1,30 +1,23 @@
 import * as React from 'react';
 import { View, Text, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { DrawerContentScrollView, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import * as screens from "./screens";
-import { NavigationContainer } from '@react-navigation/native';
+import MenuComponent from './components/MenuComponent';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const CustomDrawer = (props) => {
-    return <DrawerContentScrollView>
-        <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
-            <Image source={{ 
-                uri: 'https://i.pinimg.com/564x/40/70/d9/4070d9574b34038f45af74f6221ec19a.jpg'}}
-
-                style={{ width: 100, height: 100, borderRadius: 30, margin: 20 }}
-            />
-            <View style={{ justifyContent: 'center'}}>
-                <Text>Duck UI</Text>
-                <Text>a@gmail.com</Text>
-            </View>
-        </View>
-        <DrawerItemList {...props} />
-    </DrawerContentScrollView>
+    return (
+        <DrawerContentScrollView>
+            <MenuComponent/>
+            <DrawerItemList {...props} />
+        </DrawerContentScrollView>
+    )
 }
 
 export const HomeMenu = () => {
@@ -48,6 +41,7 @@ export default HomeStack = () => {
                 <Stack.Screen name="Welcome" component={screens.WelcomeScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="HomeMenu" component={HomeMenu} options={{ headerShown: false, gestureEnabled: false }} />
                 <Stack.Screen name="SignUp" component={screens.SignUpScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="Profile" component={screens.ProfileScreen} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     )
