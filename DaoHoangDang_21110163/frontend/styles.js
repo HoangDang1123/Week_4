@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { color } from 'react-native-tailwindcss';
 
 export const Colors = {
   primary100: '#f9beda',
@@ -7,6 +8,38 @@ export const Colors = {
   error100: '#fcdcbf',
   error500: '#f37c13',
 };
+
+export const categoriesStyles = StyleSheet.create({
+  view: {
+    marginTop: 120,
+    marginLeft: 10,
+    marginRight: 10,
+    justify: 'center',
+    flexDirection: 'row',
+  }
+});
+
+export const acquisitionStyles = StyleSheet.create({
+  view: {
+    marginTop: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    justify: 'center',
+    flexDirection: 'row'
+  }
+});
+
+export const itemStyles = StyleSheet.create({
+  view: {
+    position: 'relative',
+    flex: 0,
+    marginTop: '20%',
+    marginBottom: '20%',
+    marginHorizontal: 24,
+    height: '55%',
+    overflow: 'hiden',
+  }
+});
 
 export const unSelectedCategoryStyles = StyleSheet.create({
   text: {
@@ -18,12 +51,12 @@ export const unSelectedCategoryStyles = StyleSheet.create({
 });
 
 export const selectedCategoryStyles = StyleSheet.create({
-   text: {
-     fontWeight: 'bold',
-     marginLeft: 10,
-     fontSize: 20,
-     borderBottomWidth: 4,
-   }
+  text: {
+    fontWeight: 'bold',
+    marginLeft: 10,
+    fontSize: 20,
+    borderBottomWidth: 4,
+  }
 });
 
 export const grayBackgroundStyles = StyleSheet.create({
@@ -66,4 +99,10 @@ export const blueBackgroundStyles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
   },
+});
+
+export const scrollViewStyles = StyleSheet.create({
+  scrollview: {
+    paddingHorizontal: 5
+  }
 });
