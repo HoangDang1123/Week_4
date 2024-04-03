@@ -42,7 +42,7 @@ export default function ProductRating({ navigation }) {
 }
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F4F4F4',
+        backgroundColor: '#E8E8E8',
         marginTop: 10,
         paddingVertical: 5,
         paddingHorizontal: 20,

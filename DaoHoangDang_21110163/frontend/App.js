@@ -38,8 +38,14 @@ export default function App({ navigation }) {
             headerShown: false
           }}
         />
+        <Stack.Screen
+          name="ProductDetail"
+          component={ProductDetailScreen}
+          options={{
+            headerShown: false
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-    //<ProductDetailScreen/>
   )
 }

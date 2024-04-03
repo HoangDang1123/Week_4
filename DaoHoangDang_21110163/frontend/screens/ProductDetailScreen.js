@@ -1,23 +1,25 @@
-import { Image, SafeAreaView, StyleSheet, ScrollView, Text, Pressable, Dimensions, View, Button } from "react-native";
+import { Image, SafeAreaView, StyleSheet, ScrollView, Text, Pressable, Dimensions, View, Button, Modal } from "react-native";
 import ProductFooter from "../components/footer/ProductFooter";
 import RateIcon from "../components/icons/RateIcon";
 import RightArrowIcon from "../components/icons/RightArrowIcon";
 import ProductRating from "../components/Item/ProductRating";
 import { useState } from "react";
-import Modal from 'react-native-modal'
 
 export default function ProductDetailScreen({ navigation }) {
     const windowHeight = Dimensions.get('window').height;
+    const [opacity, setOpacity] = useState(1);
     const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
     const handleOpenBottomSheet = () => {
         setIsBottomSheetOpen(true);
+        setOpacity(0.5);
     };
 
     const handleCloseBottomSheet = () => {
         setIsBottomSheetOpen(false);
+        setOpacity(1);
     };
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, opacity}}>
             <ScrollView style={styles.itemStyles}>
                 <Image style={styles.image} source={require('../assets/images/image2_.png')}/>
 
@@ -53,9 +55,7 @@ export default function ProductDetailScreen({ navigation }) {
                 </Pressable>
 
                 <Modal
-                    // animationType="slide"
-                    animationIn="slideOutRight"
-                    animationOut="slideOutLeft"
+                    animationType="slide"
                     transparent={true}
                     visible={isBottomSheetOpen}
                     onRequestClose={handleCloseBottomSheet}
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     detailContainer: {
         width: '100%',
-        backgroundColor: '#F4F4F4',
+        backgroundColor: '#E8E8E8',
         justifyContent: 'space-between',
         marginTop: 10,
         paddingVertical: 5,

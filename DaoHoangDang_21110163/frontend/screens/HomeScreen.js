@@ -30,7 +30,7 @@ import RentAcquisition from '../components/Acquisition/RentAcquisition';
 import Product from '../components/Item/Product.js';
 import Footer from '../components/footer/Footer.js';
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const [fetchedMessage, setFetchedMesssage] = useState('');
 
   // const authCtx = useContext(AuthContext);
@@ -91,15 +91,15 @@ function HomeScreen() {
         </SafeAreaView>
       </SafeAreaView>
       <ScrollView style={styles.itemStyles.view}>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
+        <Product onPress={() => navigation.navigate('ProductDetail')} />
       </ScrollView>
       <SafeAreaView style={{ position: 'absolute', bottom: -8 }}>
         <Footer />

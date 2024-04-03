@@ -5,10 +5,10 @@ import ProductName from './ProductName';
 import Owner from './Owner';
 import Status from './Status';
 
-export default function Product() {
+export default function Product({ onPress }) {
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity style={styles.container__details} >
+            <TouchableOpacity style={styles.container__details} onPress={onPress} >
                 <Image style={styles.image} source={require('../../assets/images/image2.png')} />
                 <SafeAreaView style={styles.info}>
                     <PriceFree />
